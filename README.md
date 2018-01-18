@@ -2,4 +2,4 @@
 
 Scheduler for Shutdown, Restart, Log Off and Lock for Windows 10.
 
-Just run the executable .jar file.
+Download executable scheduler.zip and run scheduler.jar
