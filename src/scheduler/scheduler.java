@@ -19,7 +19,7 @@ public class scheduler extends JFrame implements ActionListener
 	private JRadioButton shutdownRadioButton, 
             logoffRadioButton,
             lockRadioButton;
-    public JButton scheduleButton,
+	private JButton scheduleButton,
     		cancelButton;
 	
 	private scheduler()
@@ -65,22 +65,22 @@ public class scheduler extends JFrame implements ActionListener
 	public void add1()
 	{
 		/*
-        wrap - go to next line after this
-        grow - expand to fill available space
-        split 2 - ensures 2 components (this one and next) are in the same cell
-        span 2 - makes the cell span 2 cell spaces horizontally
-        align center - centers the component
-        gapy 2 - sets vertical gaps (before and after) of component to 2
-        */
-		
+	  wrap - go to next line after this
+	   grow - expand to fill available space
+	   split 2 - ensures 2 components (this one and next) are in the same cell
+	  span 2 - makes the cell span 2 cell spaces horizontally
+	 align center - centers the component
+	 gapy 2 - sets vertical gaps (before and after) of component to 2
+		 */
+				
 		add(logoffRadioButton, "split 3, span 3, gapy 2");
 		add(lockRadioButton, "wrap");
-        add(timeLabel);
-        add(timeTextField, "wrap, ");
-        add(shutdownRadioButton, "split 3, span 3,  gapy 2");
-        add(restartRadioButton, "wrap,split 2");
-        add(scheduleButton, "span 2, align center, gapy 1");
-        add(cancelButton, "span 2, align center, gapy 1");
+		add(timeLabel);
+		add(timeTextField, "wrap, ");
+		add(shutdownRadioButton, "split 3, span 3,  gapy 2");
+		add(restartRadioButton, "wrap,split 2");
+		add(scheduleButton, "span 2, align center, gapy 1");
+		add(cancelButton, "span 2, align center, gapy 1");
 	}
 	
 	public static void main(String[] args)
