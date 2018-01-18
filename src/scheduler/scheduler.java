@@ -26,16 +26,16 @@ public class scheduler extends JFrame implements ActionListener
 	{
 		super();
 		initialize();
-		
+			
 		setLayout(new MigLayout("fillx, align center center"));
-		
+			
 		add1();
 		setVisible(true);
-        setSize(250, 155);
-        setTitle("Scheduler");
-        setResizable(true);
-        setLocationRelativeTo(null); 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(250, 155);
+		setTitle("Scheduler");
+		setResizable(true);
+		setLocationRelativeTo(null); 
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void initialize()
@@ -47,20 +47,20 @@ public class scheduler extends JFrame implements ActionListener
 		restartRadioButton = new JRadioButton("Restart");
 		logoffRadioButton = new JRadioButton("Log Off");
 		lockRadioButton = new JRadioButton("Lock");
-		logoffRadioButton.setSelected(true);
-		
+		logoffRadioButton.setSelected(true);	
+			
 		userType = new ButtonGroup();
-        userType.add(shutdownRadioButton);
-        userType.add(restartRadioButton);
-        userType.add(logoffRadioButton);
-        userType.add(lockRadioButton);
-        
-        scheduleButton = new JButton("Schedule");
-        scheduleButton.addActionListener(this);
-        cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(this);
-        scheduleButton.setActionCommand("1");
-        cancelButton.setActionCommand("2");	
+		userType.add(shutdownRadioButton);
+		userType.add(restartRadioButton);
+		userType.add(logoffRadioButton);
+		userType.add(lockRadioButton);
+	        
+		scheduleButton = new JButton("Schedule");
+		scheduleButton.addActionListener(this);
+		cancelButton = new JButton("Cancel");
+		cancelButton.addActionListener(this);
+		scheduleButton.setActionCommand("1");
+		cancelButton.setActionCommand("2");	
 	}
 	public void add1()
 	{
