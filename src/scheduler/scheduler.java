@@ -139,7 +139,7 @@ public class scheduler extends JFrame implements ActionListener
 	            	 		}
 	            	 		Runtime.
 	            	 			getRuntime().
-	        	    			exec("cmd /c start \"\" logoff.bat");
+	        	    			exec("cmd /c start \"\" \\Scheduler\\src\\scheduler\\logoff.bat");
 	             		} 
 	             		catch (IOException e1)
 	             		{
@@ -163,7 +163,7 @@ public class scheduler extends JFrame implements ActionListener
 	        		 	}
 	        		 	Runtime.
 	        		 		getRuntime().
-	        		 		exec("cmd /c start \"\" lock.bat");
+	        		 		exec("cmd /c start \"\" \\Scheduler\\src\\scheduler\\lock.bat");
 	        	 	} 
 	        	 	catch (IOException e1)
 	        	 	{
