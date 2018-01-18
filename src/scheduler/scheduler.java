@@ -9,9 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 import net.miginfocom.swing.MigLayout;
 
-public class scheduler extends JFrame implements ActionListener{
+public class scheduler extends JFrame implements ActionListener
+{
 	 
-	
 	private JRadioButton restartRadioButton;
 	private JLabel timeLabel;
 	private JTextField timeTextField;
@@ -36,9 +36,6 @@ public class scheduler extends JFrame implements ActionListener{
         setResizable(true);
         setLocationRelativeTo(null); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-		
 	}
 	
 	public void initialize()
@@ -58,19 +55,16 @@ public class scheduler extends JFrame implements ActionListener{
         userType.add(logoffRadioButton);
         userType.add(lockRadioButton);
         
-        
         scheduleButton = new JButton("Schedule");
         scheduleButton.addActionListener(this);
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(this);
         scheduleButton.setActionCommand("1");
-        cancelButton.setActionCommand("2");
-		
-		
+        cancelButton.setActionCommand("2");	
 	}
 	public void add1()
 	{
-		 /*
+		/*
         wrap - go to next line after this
         grow - expand to fill available space
         split 2 - ensures 2 components (this one and next) are in the same cell
@@ -92,8 +86,7 @@ public class scheduler extends JFrame implements ActionListener{
 	public static void main(String[] args)
     {
 		scheduler t = new scheduler();
-	
-    }
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -102,88 +95,91 @@ public class scheduler extends JFrame implements ActionListener{
 		int action = Integer.parseInt(e.getActionCommand());
 		int time = Integer.parseInt(timeTextField.getText());
 	 	time = time * 60;
-		switch(action) {
-		 case 1:
-			
-	            if(shutdownRadioButton.isSelected())
-	            {
-	            	
-	            	try {
-	        			Process p = Runtime.getRuntime().exec("shutdown.exe -s -t " + time);
-	        			
-	        		} catch (IOException e1){
-	        			e1.printStackTrace();
-	        		}
-	            	JOptionPane.showMessageDialog(null, "Success! You can close the application");
-	            	
-	            }
-	            else if(restartRadioButton.isSelected())
-	            {
-	            	
-	            	try {
-	        			Process p = Runtime.getRuntime().exec("shutdown.exe -r -t " + time);
-	        		} catch (IOException e1){
-	        			e1.printStackTrace();
-	        		}
-	            	JOptionPane.showMessageDialog(null, "Success! You can close the application");
-	            	
-	            }
-	            else if(logoffRadioButton.isSelected())
-	            {
-	            	
-	            	JOptionPane.showMessageDialog(null, "Do not close the application! You cannot cancel timed Log Off");
-	            	try {
-	        			//Process p = Runtime.getRuntime().exec("shutdown.exe -l");
-	            		try {
-							TimeUnit.SECONDS.sleep(time);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-	            		Runtime.
-	        			   getRuntime().
-	        			   exec("cmd /c start \"\" R:\\Scheduler\\src\\scheduler\\logoff.bat");
-	        		} catch (IOException e1){
-	        			e1.printStackTrace();
-	        		}
-	            	
-	            }
-		         else
-		            {
-		        	 JOptionPane.showMessageDialog(null, "Do not close the application! You cannot cancel timed Lock");
-		            	try {
-		        			//Process p = Runtime.getRuntime().exec("rundll32.exe user32.dll, LockWorkStation");
-		            		try {
-								TimeUnit.SECONDS.sleep(time);
-							} catch (InterruptedException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-		        			Runtime.
-		        			   getRuntime().
-		        			   exec("cmd /c start \"\" R:\\Scheduler\\src\\scheduler\\lock.bat");
-		        		} catch (IOException e1){
-		        			e1.printStackTrace();
-		        		}
-		            }
-			         break;
-		 case 2:
-			 JOptionPane.showMessageDialog(null, "Your process has been cancelled!");
-			 try {
-     			Process p = Runtime.getRuntime().exec("shutdown.exe -a");
-     		} catch (IOException e1){
+	 	switch(action) {
+		case 1:
+			 if(shutdownRadioButton.isSelected())
+			 { 	
+				 try 
+				 {
+					 Process p = Runtime.getRuntime().exec("shutdown.exe -s -t " + time);
+				 } 
+				 catch (IOException e1)
+				 {
+					 e1.printStackTrace();
+				 }
+				 JOptionPane.showMessageDialog(null, "Success! You can close the application");
+	         }
+			 else if(restartRadioButton.isSelected())
+	         {
+	        	 try 
+	        	 {
+	        		 Process p = Runtime.getRuntime().exec("shutdown.exe -r -t " + time);
+	        	 } 
+	        	 catch (IOException e1)
+	        	 {
+	        		 e1.printStackTrace();
+	        	 }
+	        	 JOptionPane.showMessageDialog(null, "Success! You can close the application");
+	         }
+	         else if(logoffRadioButton.isSelected())
+	         {
+	        	 JOptionPane.showMessageDialog(null, "Do not close the application! You cannot cancel timed Log Off");
+	        	 try 
+	             {
+	            	 //Process p = Runtime.getRuntime().exec("shutdown.exe -l");
+	            	 try 
+	            	 {
+	            		 TimeUnit.SECONDS.sleep(time);
+	            	 } 
+	            	 catch (InterruptedException e1) 
+	            	 {
+	            		 // TODO Auto-generated catch block
+	            		 e1.printStackTrace();
+	            	 }
+	            	 Runtime.
+	            	 	getRuntime().
+	        	    	exec("cmd /c start \"\" R:\\Scheduler\\src\\scheduler\\logoff.bat");
+	             } 
+	             catch (IOException e1)
+	             {
+	                	e1.printStackTrace();
+	             }
+	         }
+	         else
+	         {
+	        	 JOptionPane.showMessageDialog(null, "Do not close the application! You cannot cancel timed Lock");
+	        	 try 
+	        	 {
+	        		 //Process p = Runtime.getRuntime().exec("rundll32.exe user32.dll, LockWorkStation");
+	        		 try 
+	        		 {
+	        			 TimeUnit.SECONDS.sleep(time);
+	        		 } 
+	        		 catch (InterruptedException e1) 
+	        		 {
+	        			 // TODO Auto-generated catch block
+	        			 e1.printStackTrace();
+	        		 }
+	        		 Runtime.
+	        		 getRuntime().
+	        		 exec("cmd /c start \"\" R:\\Scheduler\\src\\scheduler\\lock.bat");
+	        	 } 
+	        	 catch (IOException e1)
+	        	 {
+	        		 e1.printStackTrace();
+	        	 }
+	         }
+			 break;
+		case 2:
+			JOptionPane.showMessageDialog(null, "Your process has been cancelled!");
+			try {
+				Process p = Runtime.getRuntime().exec("shutdown.exe -a");
+			} 
+			catch (IOException e1)
+			{
      			e1.printStackTrace();
      		}
-		         break;
-		 }
-		
-		 		
-	            
-	         
-	      
-		
+			break;
+	 	}
 	}
-
-
-
 }
